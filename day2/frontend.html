@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        #container div {
+            width: 30%;
+
+        }
+        img {
+            height: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+    let investor_arr = JSON.parse(localStorage.getItem("investorsData"))
+    let container = document.getElementById("container")
+    for(i of investor_arr) {
+        box = document.createElement("div")
+        img = document.createElement("img")
+        img.setAttribute("src", i.image)
+        box.append(img)
+        container.append(box)
+    }
+
+</script>
