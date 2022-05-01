@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: auto;
+            padding: 20px;
+            width: 40%;
+            margin: auto;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+        }
+        label, input {
+            display: block;
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: large;
+        }
+        #submit {
+            margin-top: 50px;
+            width: 50%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="form">
+            <h2>Signup</h2>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" placeholder="Enter your full name">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter your email">
+            <label for="pwd">Password</label>
+            <input type="password" id="pwd" placeholder="Enter Password">
+            <input type="submit" id="submit">
+            <button><a href="signin.html">Sign In</a></button>
+        </form>
+        
+    </div>
+</body>
+</html>
+
+<script>
+    let form = document.getElementById("form")
+    form.addEventListener("submit", sign)
+
+    function sign() {
+        event.preventDefault()
+        signupobj = JSON.parse(localStorage.getItem(signup_data)) || {}
+        signupobj.name = document.getElementById("fullname").value
+        signupobj.email = document.getElementById("email").value 
+        signupobj.password = document.getElementById("pwd").value 
+        localStorage.setItem("signup_data", JSON.stringify(signupobj))
+    }
+</script>
